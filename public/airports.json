@@ -1,0 +1,8 @@
+[
+  { "iata": "BOM", "name": "Chhatrapati Shivaji Maharaj Intl Airport", "city": "Mumbai", "country": "India" },
+  { "iata": "DEL", "name": "Indira Gandhi Intl Airport", "city": "Delhi", "country": "India" },
+  { "iata": "BLR", "name": "Kempegowda Intl Airport", "city": "Bangalore", "country": "India" },
+  { "iata": "PNQ", "name": "Pune Airport", "city": "Pune", "country": "India" },
+  { "iata": "JFK", "name": "John F. Kennedy Intl Airport", "city": "New York", "country": "USA" },
+  { "iata": "LHR", "name": "London Heathrow", "city": "London", "country": "UK" }
+]

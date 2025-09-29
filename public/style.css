@@ -1,0 +1,689 @@
+/* body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f4f6f9;
+  color: #333;
+}
+
+header {
+  background: #0077b6;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+
+.search-box input, .search-box button, .search-box select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.search-box button {
+  background: #0077b6;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-box button:hover {
+  background: #023e8a;
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.result-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: 0.3s;
+}
+
+.result-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.result-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.result-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.book-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #0077b6;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.book-btn:hover {
+  background: #023e8a;
+}
+
+
+/* Hotel Card Styling */
+/* .result-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+.result-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.result-card h3 {
+  font-size: 1.2rem;
+  margin: 15px;
+  color: #222;
+  font-weight: 600;
+}
+
+.result-card p {
+  margin: 0 15px 15px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.result-card .price {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.result-card .stars {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.result-card .location {
+  color: #007bff;
+}
+
+.result-card a {
+  display: block;
+  text-align: center;
+  background: linear-gradient(45deg, #007bff, #00bfff);
+  color: #fff;
+  padding: 12px;
+  margin: 0 15px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.result-card a:hover {
+  background: linear-gradient(45deg, #0056b3, #0099cc);
+}
+
+/* Results Grid Layout */
+/* #results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Card sizing fix */
+/* .result-card {
+  max-width: 280px;
+  margin: auto;
+}
+
+.result-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  background: #f0f0f0;
+} */ 
+
+/* ================================
+   Global Styles
+================================ */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Smooth transitions for UI */
+a, button, .btn {
+  transition: all 0.3s ease;
+}
+
+/* ================================
+   Navbar
+================================ */
+.navbar {
+  padding: 1rem 1.5rem;
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: #fff !important;
+  margin-left: 1rem;
+}
+
+.navbar .nav-link:hover {
+  color: #ffd166 !important;
+  transform: translateY(-2px);
+}
+
+/* ================================
+   Hero Section
+================================ */
+.hero {
+  background: url('https://source.unsplash.com/1600x600/?travel,beach,city') no-repeat center center/cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  position: relative;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+/* ================================
+   Features Section
+================================ */
+.card {
+  border-radius: 1rem;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.card-title {
+  font-weight: 600;
+  color: #0077b6;
+}
+
+/* ================================
+   Planner Form
+================================ */
+#hotel-form input, 
+#hotel-form button {
+  border-radius: 0.5rem;
+}
+
+#hotel-form button {
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+  border: none;
+}
+
+#hotel-form button:hover {
+  background: linear-gradient(90deg, #0096c7, #48cae4);
+  transform: scale(1.05);
+}
+
+/* ================================
+   Results Section (Hotels)
+================================ */
+#results .card {
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+#results .card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+#results .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+#results .btn {
+  background: #0077b6;
+  border: none;
+}
+
+#results .btn:hover {
+  background: #00b4d8;
+}
+
+/* ================================
+   Contact Page
+================================ */
+form.card {
+  border-radius: 1rem;
+}
+
+form.card button {
+  background: #0077b6;
+  border: none;
+}
+
+form.card button:hover {
+  background: #0096c7;
+}
+
+/* ================================
+   Footer
+================================ */
+footer {
+  background: #023e8a;
+  color: #fff;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+
+footer a {
+  color: #ffd166;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Results Card Styling */
+#resultsContainer .card {
+  border-radius: 0.8rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#resultsContainer .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+#resultsContainer img {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 0.8rem;
+  border-top-right-radius: 0.8rem;
+}
+
+#resultsContainer .card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+#resultsContainer .card-text {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+
+/* === Custom Button Colors for Planner Page === */
+.btn-weather {
+  background: linear-gradient(90deg, #00b4d8, #48cae4);
+  color: #fff;
+  border: none;
+}
+.btn-weather:hover {
+  background: linear-gradient(90deg, #0096c7, #00b4d8);
+}
+
+.btn-hotels {
+  background: linear-gradient(90deg, #48cae4, #90e0ef);
+  color: #fff;
+  border: none;
+}
+.btn-hotels:hover {
+  background: linear-gradient(90deg, #00b4d8, #48cae4);
+}
+
+.btn-flights {
+  background: linear-gradient(90deg, #0077b6, #0096c7);
+  color: #fff;
+  border: none;
+}
+.btn-flights:hover {
+  background: linear-gradient(90deg, #023e8a, #0077b6);
+}
+
+
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+              url('images/travel-hero.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  animation: fadeInBg 1.2s ease-in-out;
+}
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideInDown 1s ease forwards 0.3s;
+}
+.hero-section p {
+  font-size: 1.25rem;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards 0.8s;
+}
+.hero-section .btn {
+  padding: 0.75rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  margin-top: 1.5rem;
+  opacity: 0;
+  transform: scale(0.9);
+  animation: popIn 0.8s ease forwards 1.2s;
+}
+.hero-section .btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Scroll Down Indicator */
+.scroll-down {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: #fff;
+  animation: bounce 2s infinite;
+  text-decoration: none;
+}
+.scroll-down:hover {
+  color: #90e0ef;
+}
+
+/* Animations */
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideInDown {
+  from { transform: translateY(-40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+  40% { transform: translate(-50%, -10px); }
+  60% { transform: translate(-50%, -5px); }
+}
+
+/* Features Section */
+.feature-card {
+  border-radius: 1rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+
+/* Fancy Start Planning Button */
+.btn-start-planning {
+  background: linear-gradient(90deg, #0077b6, #00b4d8);
+  color: #fff;
+  border: none;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-start-planning:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  background: linear-gradient(90deg, #023e8a, #0077b6);
+}
+
+.btn-start-planning i {
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+
+.btn-start-planning:hover i {
+  transform: translateX(5px);
+}
+
+.about-hero {
+  min-height: 60vh;
+  background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+              url('images/about-hero.jpg') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+
+
+
+
+/* Container for each flight card */
+.flight-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 12px;
+  margin-bottom: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  background-color: #fff;
+}
+
+/* Hover effect */
+.flight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Top section of the card */
+.flight-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Airline logo */
+.airline-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* Flight details */
+.flight-details h5 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+}
+.flight-details p {
+  margin: 2px 0;
+  font-size: 0.9rem;
+}
+.flight-details small {
+  color: #555;
+}
+
+/* Status badge */
+.status-badge {
+  margin-left: auto;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  text-transform: uppercase;
+}
+.status-badge.scheduled { background-color: #007bff; }
+.status-badge.active { background-color: #28a745; }
+.status-badge.landed { background-color: #28a745; }
+.status-badge.cancelled { background-color: #dc3545; }
+.status-badge.incident { background-color: #ffc107; color: #212529; }
+.status-badge.diverted { background-color: #6c757d; }
+
+/* Footer with Book Now button */
+.flight-footer {
+  text-align: right;
+  margin-top: 10px;
+}
+.book-btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+.book-btn:hover {
+  background-color: #0056b3;
+}
+
+
+/* Flight card container */
+.card.flight-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card.flight-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Flight details text */
+.flight-details {
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 8px;
+}
+
+/* Flight status badge */
+.status-badge {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.status-badge.scheduled { background-color: #007bff; }
+.status-badge.active { background-color: #28a745; }
+.status-badge.landed { background-color: #28a745; }
+.status-badge.cancelled { background-color: #dc3545; }
+.status-badge.incident { background-color: #ffc107; color: #212529; }
+.status-badge.diverted { background-color: #6c757d; }
+
+/* Book Now button */
+.card a.btn {
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.card a.btn:hover {
+  background-color: #0056b3;
+}
