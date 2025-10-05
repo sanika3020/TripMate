@@ -48,21 +48,13 @@ TripMate is an integrated travel planning solution that enables users to search 
    npm install
    ```
 
-3. **Configure API keys:**
-   Add your API keys in `server.js` or use environment variables:
 
-   ```js
-   const AVIATION_KEY = "YOUR_AVIATIONSTACK_API_KEY";
-   const WEATHER_KEY = "YOUR_OPENWEATHER_API_KEY";
-   const HOTEL_API_KEY = "YOUR_HOTELLOOK_API_KEY";
-   ```
-
-4. **Start the server:**
+3. **Start the server:**
    ```bash
    node server.js
    ```
 
-5. **Open in browser:**
+4. **Open in browser:**
    ```
    http://localhost:3000
    ```
